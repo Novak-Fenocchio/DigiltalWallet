@@ -58,23 +58,40 @@
       </div>
     </section>
 
-    <section class="sectionCard sectionCardsection_add" id='section_add_reports'>
+    <section class=" sectionCardsection_add" id='section_add_reports'>
       <hr>
       <div class="">
         <h3>New expense</h3>
-        <form action="/ExpenseReport" class="row" method="POST">
+        <form action="/ExpenseReport" class="row form-relative" method="POST">
           @csrf
 
-          <div class="input col-lg-6">
+          <div class="input col-lg-5">
             <label for="expense_amount">Title Expense</label>
             <br>
             <input type="type" name="expense_title" autocomplete="off" maxlength="15" placeholder="Holydas in Camboya" required>
           </div>
 
-          <div class="input col-lg-6">
+          <div class="input col-lg-4">
             <label for="expense_amount">Amount</label>
             <br>
             <input type="type" name="expense_amount" autocomplete="off" placeholder="$" min="0" required>
+          </div>
+          
+          <div class="selectCategoryContainer">
+              <h4 class="bolder">Select a Category</h4>
+              <div class="SelectACategorie ">
+                <div class="category C Food" id="Food">Food</div>
+                <div class="category C Tech" id="Tech">Tech</div>
+                <div class="category C House" id="House">House</div>
+                <div class="category C Treat" id="Treat">Treat</div>
+                <div class="category C Work" id="Work">Work</div>
+                <div class="category C Education" id="Education">Education</div>
+              </div>
+          </div>
+          
+          <div class="input col-lg-3 buttonSelectCategory">
+            <div id="selectCategory" onclick="selectCategory()" class="btn-lightgreen">Category<i class="fas fa-caret-down"></i></div>
+            <input type="hidden" name="category" id='category'>
           </div>
 
           <br>

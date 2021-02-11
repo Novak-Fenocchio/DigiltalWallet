@@ -17,6 +17,7 @@ class CreateIncomesTable extends Migration
             $table->id();
             $table->string('incomeName');
             $table->string('incomeAmount');
+            $table->string('category');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

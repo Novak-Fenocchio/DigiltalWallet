@@ -60,6 +60,17 @@ a:hover {
 .lighter {
     font-weight: lighter;
 }
+.bolder {
+    font-weight: bolder;
+}
+.section-charts {
+    padding-left: 2vw;
+    padding-right: 0;
+}
+.row-charts {
+    margin-right: -40px;
+}
+
 /* Header */
 header {
     background-color: #3ef3ba;
@@ -186,7 +197,33 @@ section {
     border-bottom: 2px solid #3ef3ba;
     outline: none;
 }
-
+.buttonSelectCategory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vw;
+    padding: 0;
+    width: 150%;
+}
+.buttonSelectCategory {
+    font-size: 1.5vw;
+}
+.buttonSelectCategory i {
+    margin-left: 0.5vw;
+}
+.form-relative {
+    position: relative;
+}
+.selectCategoryContainer {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    position: absolute;
+    top: -270%;
+    left: 55%;
+    padding: 1vw 2vw;
+    width: 40%;
+}
 .section_add_reports h3 {
     padding-bottom: 2vw;
 }
@@ -425,8 +462,7 @@ section {
     background-color: #261e5c;
     border-radius: 10px;
     text-align: center;
-    padding-top: 3vw;
-    padding-bottom: 2vw;
+    padding-top: 1vw;
 }
 .titleChart {
     color: white;
@@ -463,4 +499,55 @@ section {
 }
 .ConfirmDeleteButtons form a {
     margin-left: 1vw;
+}
+/* Categories */
+.SelectACategorie div {
+    margin-bottom: 1vw;
+}
+.whiteRow {
+    height: 1vw;
+}
+.category {
+    border-radius: 5px;
+    font-weight: bolder;
+    padding: 0.3vw 1.5vw;
+}
+.Tech,
+.Tech:hover {
+    background-color: rgb(66, 66, 129);
+    border: 2px solid rgb(66, 66, 129);
+    color: white;
+}
+.Treat,
+.Treat:hover {
+    background-color: gold;
+    border: 2px solid gold;
+    color: black;
+}
+.Food,
+.Food:hover {
+    background-color: rgb(190, 1, 1);
+    border: 2px solid rgb(190, 1, 1);
+    color: white;
+}
+.House,
+.House:hover {
+    background-color: rgb(4, 121, 56);
+    border: 2px solid rgb(4, 121, 56);
+    color: rgb(255, 255, 255);
+}
+.Work,
+.Work:hover {
+    background-color: rgb(50, 197, 255);
+    border: 2px solid rgb(50, 197, 255);
+    color: rgb(0, 0, 0);
+}
+.Education,
+.Education:hover {
+    background-color: rgb(153, 1, 90);
+    border: 2px solid rgb(153, 1, 90);
+    color: rgb(255, 255, 255);
+}
+.col-chart {
+    padding-bottom: 5vw;
 }

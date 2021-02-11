@@ -49,6 +49,7 @@ class ExpenseReportController extends Controller
         $report = new expenses();
         $report->expenseAmount = $request->get('expense_amount');
         $report->expenseName = $request->get('expense_title');
+        $report->category = $request->get('category');
         $report->save();
 
         return redirect('ExpenseReport');

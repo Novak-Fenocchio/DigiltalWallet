@@ -18,12 +18,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src='js/index.js'></script>
 
-    <section class="">
-        <div class="row">
-            <div class="col-stock-info col-lg-6">
+    <section class="section-charts">
+        <div class="row row-charts">
+            <div class="col-stock-info col-chart col-lg-6">
                 <ul class="list_stocks">
                     <table class="table-expenses table-stocks">
                         <tr class="trmain">
+                            <td>Category:</td>
                             <td>Expense:</td>
                             <td>Amount:</td>
                             <td>Date:</td>
@@ -36,12 +37,14 @@
                         </tr>
                         @foreach ($expenses as $expense)
                         <li><tr>
+                            <td><span class="category {{$expense->category}}">{{$expense->category}}</span></td>
                             <td>{{$expense->expenseName}}</td>
                             <td>${{$expense->expenseAmount}}</td>
                             <td>{{$expense->created_at->format('d-m')}}</td>
                             <td><a href="/ExpenseReport/{{$expense->id}}/editExpense" class="edit_expense">Edit</a></td>
                             <td><a href="/ExpenseReport/{{$expense->id}}/confirmDelete" class="delete_expense">delete</a></td>
                         </tr></li>
+                        <tr class="whiteRow"></tr>
                         @endforeach
                     </table> <br>
                 </ul>
@@ -50,6 +53,7 @@
             <div class="ChartExpense col-lg-5">
                 <h3 class="titleChart">Your distribution</h3>
                 <canvas id='MyChart'></canvas>
+                <canvas id='MyChartCategories'></canvas>
                 <canvas id="MyChartBar"></canvas>
 
                 <button class="btn_deepblue btnChangeFormat">Change format</button>
@@ -125,6 +129,39 @@
                             });
                     </script> 
 
+                    {{-- Chart categories --}}
+                    <script>
+                        let MyChartCategories = document.getElementById('MyChartCategories').getContext('2d');
+
+                        var chart = new Chart(MyChartCategories, {
+                                    type: 'pie',
+                                    data: {
+                                        labels:expensesJS,
+                                        datasets: [{
+                                            label:'Amount',
+                                            data: expensesAmountJS,
+                                            backgroundColor: [
+                                                '#7a8eff', 
+                                                '#e2ff61', 
+                                                '#5ffa83', 
+                                                '#fa5f5f', 
+                                                '#fad85f', 
+                                                '#cfff82', 
+                                            ],
+                                            borderColor: 'black'
+                                        }]
+                                    },
+                                    options: {
+                                    legend: {
+                                        labels: {
+                                            // This more specific font property overrides the global property
+                                            fontColor: 'white'
+                                                }
+                                            }
+                                    }
+                                });
+
+                    </script>
                 </div>
             </div>
 
@@ -135,6 +172,7 @@
     </section>
     <script>
         let stateFormate = '2';
+        $('#MyChart').hide();
         $('#MyChartBar').hide();
        /* Change format chart */
         $('.btnChangeFormat').on('click', function(){

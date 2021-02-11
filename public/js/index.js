@@ -3,8 +3,10 @@ let stateContainerAction = '2';
 let stateAddIncome = '2';
 let stateAddExpense = '2';
 
-$('#section_add_reports').hide();
-$('#section_add_incomes').hide();
+ $('#section_add_reports').hide();
+ $('#section_add_incomes').hide();
+ $('.selectCategoryContainer').hide();
+
 $('.optionsActions').hide();
 $('.selectAction').hide();
 
@@ -50,3 +52,16 @@ $('.expenseAction').on('click', function(){
     }
 });
 
+/* Select category */
+function selectCategory()
+{
+    $('.selectCategoryContainer').show();
+}
+
+$('.C').on('click', function(){
+    $('#selectCategory').removeClass();
+    $('.selectCategoryContainer').hide();
+    $('#selectCategory').addClass('btn-lightgreen');
+    $('#selectCategory').addClass(this.id);
+    $('#category').val(this.id);
+});
