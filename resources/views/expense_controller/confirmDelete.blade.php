@@ -14,11 +14,11 @@
             </tr>
         </table>
        <div class="ConfirmDeleteButtons">
-            <form action="/{{$controller}}/{{$report->id}}" method="POST">
+            <form action="/{{$controllerMine}}/{{$report->id}}" method="POST">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn_deepblue">Delete</button>
-                <a href="/{{$controller}}/show" class="btn-lightgreen col-lg-6">Cancel</a>
+                <a href="/{{$controllerMine}}/show" class="btn-lightgreen col-lg-6">Cancel</a>
             </form>
         </div>
     </section>

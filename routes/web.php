@@ -16,6 +16,8 @@ Route::resource('expensesResume', expensesResume::class);
 
 Route::resource('ExpenseReport', ExpenseReportController::class);
 Route::get('/ExpenseReport/{id}/confirmDelete', [ExpenseReportController::class, 'confirmDelete']);
+Route::get('/ExpenseReport/{id}/editExpense', [ExpenseReportController::class, 'editExpense']);
 
 Route::resource('incomesReport', incomesReport::class);
 Route::get('/incomesReport/{id}/confirmDelete', [incomesReport::class, 'confirmDelete']);
+Route::get('/incomesReport/{id}/editIncome', [incomesReport::class, 'editIncome']);

@@ -32,4 +32,8 @@ class expensesResume extends Controller
 
         return redirect('expensesResume/show');
     }
+    public function editExpense($id)
+    {
+        return 'yeah';
+    }
 }

@@ -28,12 +28,13 @@
     
         <section class="">
             <div class="row">
-                <div class="col-stock-info col-lg-5">
+                <div class="col-stock-info col-lg-6">
                     <ul class="list_stocks">
                         <table class="table-expenses table-stocks">
                             <tr class="trmain">
                                 <td>Income:</td>
                                 <td>Amount:</td>
+                                <td>Date:</td>
                             </tr>
                             <tr>
                             <td><hr></td>
@@ -45,15 +46,17 @@
                             <li><tr>
                                 <td>{{$income->incomeName}}</td>
                                 <td>${{$income->incomeAmount}}</td>
-                                <td><a href="" class="delete_expense">Edit</a></td>
-                                <td><a href="/incomesReport/{{$income->id}}/confirmDelete">delete</a></td>
+                                <td>{{$income->created_at->format('d-m')}}</td>
+                                <td><a href="/incomesReport/{{$income->id}}/editIncome" class="edit_expense">Edit</a></td>
+                                <td><a href="/incomesReport/{{$income->id}}/confirmDelete" class="delete_expense">delete</a></td>
                             </tr></li>
                             @endforeach
                         </table> <br>
                     </ul>
                 </div>
         
-                <div class="ChartExpense col-lg-6">
+                {{-- Chrts --}}
+                <div class="ChartExpense col-lg-5">
                    
                     <h3 class="titleChart">Your distribution</h3>
                     <canvas id='MyChart'></canvas>

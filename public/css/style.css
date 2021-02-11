@@ -237,6 +237,11 @@ section {
     color: rgb(190, 10, 10);
     font-weight: 700;
 }
+.edit_expense {
+    border-bottom: 1px solid #433992;
+    color: #10ca8f;
+    font-weight: 700;
+}
 .expenseInfo {
     display: flex;
     justify-content: space-between;
@@ -420,7 +425,7 @@ section {
     background-color: #261e5c;
     border-radius: 10px;
     text-align: center;
-    padding-top: 2vw;
+    padding-top: 3vw;
     padding-bottom: 2vw;
 }
 .titleChart {

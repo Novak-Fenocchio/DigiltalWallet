@@ -75,7 +75,17 @@ class ExpenseReportController extends Controller
     {
         //
     }
-
+    public function editExpense($id)
+    {
+        $report = expenses::findOrFail($id);
+        return view('expense_controller.edit', [
+            'expense' => $report,
+            'name' => $report->expenseName,
+            'amount' => $report->expenseAmount,
+            'type' => 'Expense',
+            'controllerMine' => 'ExpenseReport'
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -85,7 +95,11 @@ class ExpenseReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $report = expenses::findOrFail($id);
+        $report->expenseName = $request->get('title');
+        $report->expenseAmount = $request->get('amount');
+        $report->save();
+        return redirect('expensesResume/show');
     }
 
     /**
@@ -98,13 +112,14 @@ class ExpenseReportController extends Controller
     public function confirmDelete($id)
     {
         $report = expenses::findOrFail($id);
+
         return view(
             'expense_controller.confirmDelete',
             [
                 'report' => $report,
                 'name' => $report->expenseName,
                 'amount' => $report->expenseAmount,
-                'controller' => 'expensesResume'
+                'controllerMine' => 'expensesResume'
             ]
         );
     }
