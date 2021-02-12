@@ -553,3 +553,25 @@ section {
 .col-chart {
     padding-bottom: 5vw;
 }
+.col-chart-buttonHome {
+    background-color: white;
+    background-color: none;
+    margin-top: 2vw;
+    margin-right: 2vw;
+    text-align: center;
+}
+.col-chart-buttonHome h3 {
+    color: black;
+}
+.col-chart-buttonHome img {
+    width: 50%;
+}
+.ChartCategories {
+    background-color: #3ef3ba;
+    margin-top: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 0;
+}
+.ChartCategories h3 {
+    color: black;
+}

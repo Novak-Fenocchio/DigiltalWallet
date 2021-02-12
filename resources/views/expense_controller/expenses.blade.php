@@ -170,8 +170,6 @@
             <div class="ChartExpense col-lg-5">
                 <h3 class="titleChart">Your distribution</h3>
                 <canvas id='MyChart'></canvas>
-                <canvas id='MyChartCategories'></canvas>
-                <canvas id="MyChartBar"></canvas>
 
                 <button class="btn_deepblue btnChangeFormat" style="background-color: #261e5c">Change format</button>
 
@@ -213,25 +211,62 @@
 
                     </script>
 
-                     {{-- Chart circle --}}
-                    <script>
-                            let MyChartBar = document.getElementById('MyChartBar').getContext('2d');
-                                            
-                            var chartBar = new Chart(MyChartBar, {
-                                type: 'bar',
+                </div>
+            </div>
+
+            <div class=" col-lg-6 col-chart-buttonHome">
+                <h3 class="titleChart">Expenses amounts</h3> 
+                <canvas id="MyChartBar"></canvas>
+                {{-- Chart circle --}}
+               <script>
+                    let MyChartBar = document.getElementById('MyChartBar').getContext('2d');
+                                    
+                    var chartBar = new Chart(MyChartBar, {
+                        type: 'bar',
+                        data: {
+                            labels:expensesJS,
+                            datasets: [{
+                                label:'Amount',
+                                data: expensesAmountJS,
+                                backgroundColor: [
+                                    '#7a8eff', 
+                                    '#e2ff61', 
+                                    '#5ffa83', 
+                                    '#fa5f5f', 
+                                    '#fad85f', 
+                                    '#cfff82', 
+                                ],
+                                borderColor: 'black'
+                            }]
+                        },
+                        options: {
+                        legend: {
+                            labels: {
+                                // This more specific font property overrides the global property
+                                fontColor: 'black'
+                                    }
+                                }
+                        }
+                    });
+                </script> 
+            </div>
+    
+            <div class="ChartExpense col-lg-5 ChartCategories">
+                <h3 class="titleChart">distribution categories</h3>
+                <canvas id='MyChartCategories'></canvas>
+
+                {{-- Chart categories --}}
+                <script>
+                    let MyChartCategories = document.getElementById('MyChartCategories').getContext('2d');
+
+                    var chart = new Chart(MyChartCategories, {
+                                type: 'pie',
                                 data: {
-                                    labels:expensesJS,
+                                    labels:categoriesNames,
                                     datasets: [{
                                         label:'Amount',
-                                        data: expensesAmountJS,
-                                        backgroundColor: [
-                                            '#7a8eff', 
-                                            '#e2ff61', 
-                                            '#5ffa83', 
-                                            '#fa5f5f', 
-                                            '#fad85f', 
-                                            '#cfff82', 
-                                        ],
+                                        data: categories,
+                                        backgroundColor: colorCategoriesChart,
                                         borderColor: 'black'
                                     }]
                                 },
@@ -239,51 +274,21 @@
                                 legend: {
                                     labels: {
                                         // This more specific font property overrides the global property
-                                        fontColor: 'white'
+                                        fontColor: 'black'
                                             }
                                         }
                                 }
                             });
-                    </script> 
 
-                    {{-- Chart categories --}}
-                    <script>
-                        let MyChartCategories = document.getElementById('MyChartCategories').getContext('2d');
-
-                        var chart = new Chart(MyChartCategories, {
-                                    type: 'pie',
-                                    data: {
-                                        labels:categoriesNames,
-                                        datasets: [{
-                                            label:'Amount',
-                                            data: categories,
-                                            backgroundColor: colorCategoriesChart,
-                                            borderColor: 'black'
-                                        }]
-                                    },
-                                    options: {
-                                    legend: {
-                                        labels: {
-                                            // This more specific font property overrides the global property
-                                            fontColor: 'white'
-                                                }
-                                            }
-                                    }
-                                });
-
-                    </script>
-                </div>
+                </script>
             </div>
-
         </div>
     </section>
     <section class="section_btn_return">
         <a href="/"><button class="btn_deepblue btnReturn">Dashboard</button></a>
-    </section>
+    </section>   
     <script>
         let stateFormate = '2';
-        $('#MyChart').hide();
-        $('#MyChartBar').hide();
        /* Change format chart */
         $('.btnChangeFormat').on('click', function(){
             if(stateFormate%2)
