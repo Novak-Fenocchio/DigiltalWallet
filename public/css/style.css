@@ -459,7 +459,7 @@ section {
 }
 /* Expenses */
 .ChartExpense {
-    background-color: #261e5c;
+    background-color: #52489c;
     border-radius: 10px;
     text-align: center;
     padding-top: 1vw;
@@ -511,7 +511,9 @@ section {
     border-radius: 5px;
     font-weight: bolder;
     padding: 0.3vw 1.5vw;
+    transition: all 0.3s;
 }
+
 .Tech,
 .Tech:hover {
     background-color: rgb(66, 66, 129);

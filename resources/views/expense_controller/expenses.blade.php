@@ -5,13 +5,130 @@
     <script>
         let expensesJS = [];
         let expensesAmountJS = [];
+        let categoriesNames = [];
+        let categories = [];
+        let categoryTech = [];
+        let categoryTreat = [];
+        let categoryFood = [];
+        let categoryHouse = [];
+        let categoryWork = [];
+        let categoryEducation = [];
+        let colorCategoriesChart =  [
+ /*                                                '#7a8eff', 
+                                                '#e2ff61', 
+                                                '#1faa33', 
+                                                '#fa5f5f', 
+                                                '#fad85f', 
+                                                '#cfff82',  */
+                                            ];
+
+        let newAmount = '';
+        let Tech = '';
+        let Food = '';
+        let Treat = '';
+
     </script>
+
+    {{-- Arrays tests --}}
+
     @foreach ($expenses as $expense)
         <script>
             expensesJS.push('{{$expense->expenseName}}');
             expensesAmountJS.push('{{$expense->expenseAmount}}');
+            
+        switch('{{$expense->category}}')
+        {
+            case 'Tech':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryTech.push(parseInt(newAmount));
+            break;
+            case 'Food':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryFood.push(parseInt(newAmount));
+            break;
+            case 'Treat':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryTreat.push(parseInt(newAmount));
+            break;
+            case 'House':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryHouse.push(parseInt(newAmount));
+            break;
+            case 'Work':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryWork.push(parseInt(newAmount));
+            break;
+            case 'Education':
+                    newAmount = '{{$expense->expenseAmount}}';
+                    categoryEducation.push(parseInt(newAmount));
+            break;
+        }
         </script>
     @endforeach
+
+    {{-- Categories --}}
+    <script>
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        let totalCategoryTech = '';
+        let totalCategoryTreat = '';
+        let totalCategoryFood = '';
+        let totalCategoryHouse  = '';
+        let totalCategoryWork = '';
+        let totalCategoryEducation = '';
+
+        if(!categoryTech.length == 0)
+        {
+            totalCategoryTech = categoryTech.reduce(reducer);
+            categories.push(totalCategoryTech);
+            categoriesNames.push('Tech');
+            colorCategoriesChart.push('rgb(66, 66, 129)');
+        }
+
+        if(!categoryTreat.length == 0)
+        {
+            totalCategoryTreat = categoryTreat.reduce(reducer);
+            categories.push(totalCategoryTreat);
+            categoriesNames.push('Treat');
+            colorCategoriesChart.push('gold');
+        }
+
+        if(!categoryFood.length == 0)
+        {
+            totalCategoryFood = categoryFood.reduce(reducer);
+            categories.push(totalCategoryFood);
+            categoriesNames.push('Food');
+            colorCategoriesChart.push('rgb(190, 1, 1)');
+        }
+
+        if(!categoryHouse.length == 0)
+        {
+            totalCategoryHouse = categoryHouse.reduce(reducer);
+            categories.push(totalCategoryHouse);
+            categoriesNames.push('House');
+            colorCategoriesChart.push('rgb(4, 121, 56)');
+        }   
+
+        if(!categoryWork.length == 0)
+        {
+            totalCategoryWork = categoryWork.reduce(reducer);
+            categories.push(totalCategoryWork);
+            categoriesNames.push('Work');
+            colorCategoriesChart.push('rgb(50, 197, 255)');
+        }   
+
+        if(!categoryEducation.length == 0)
+        {
+            totalCategoryEducation = categoryEducation.reduce(reducer);
+            categories.push(totalCategoryEducation);
+            categoriesNames.push('Education');
+            colorCategoriesChart.push('rgb(153, 1, 90)');
+        }
+
+        console.log(categoriesNames);
+        console.log(categories);
+
+    </script>
+
     <script src="https://kit.fontawesome.com/bd9aaa656f.js " crossorigin="anonymous "></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -56,7 +173,7 @@
                 <canvas id='MyChartCategories'></canvas>
                 <canvas id="MyChartBar"></canvas>
 
-                <button class="btn_deepblue btnChangeFormat">Change format</button>
+                <button class="btn_deepblue btnChangeFormat" style="background-color: #261e5c">Change format</button>
 
                 {{-- Script chart --}}
                 <div class="">
@@ -136,18 +253,11 @@
                         var chart = new Chart(MyChartCategories, {
                                     type: 'pie',
                                     data: {
-                                        labels:expensesJS,
+                                        labels:categoriesNames,
                                         datasets: [{
                                             label:'Amount',
-                                            data: expensesAmountJS,
-                                            backgroundColor: [
-                                                '#7a8eff', 
-                                                '#e2ff61', 
-                                                '#5ffa83', 
-                                                '#fa5f5f', 
-                                                '#fad85f', 
-                                                '#cfff82', 
-                                            ],
+                                            data: categories,
+                                            backgroundColor: colorCategoriesChart,
                                             borderColor: 'black'
                                         }]
                                     },
