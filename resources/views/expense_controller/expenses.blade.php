@@ -144,7 +144,6 @@
                             <td>Category:</td>
                             <td>Expense:</td>
                             <td>Amount:</td>
-                            <td>Date:</td>
                         </tr>
                         <tr>
                         <td><hr></td>
@@ -157,8 +156,8 @@
                             <td><span class="category {{$expense->category}}">{{$expense->category}}</span></td>
                             <td>{{$expense->expenseName}}</td>
                             <td>${{$expense->expenseAmount}}</td>
-                            <td>{{$expense->created_at->format('d-m')}}</td>
-                            <td><a href="/ExpenseReport/{{$expense->id}}/editExpense" class="edit_expense">Edit</a></td>
+                            <td id="edit_expense">{{$expense->created_at->format('d-m')}}</td>
+                            <td><a href="/ExpenseReport/{{$expense->id}}/editExpense" class="edit_expense" id="edit_expense">Edit</a></td>
                             <td><a href="/ExpenseReport/{{$expense->id}}/confirmDelete" class="delete_expense">delete</a></td>
                         </tr></li>
                         <tr class="whiteRow"></tr>
@@ -167,7 +166,7 @@
                 </ul>
             </div>
     
-            <div class="ChartExpense col-lg-5">
+            <div class="ChartExpense col-lg-5 chartExp">
                 <h3 class="titleChart">Your distribution</h3>
                 <canvas id='MyChart'></canvas>
 
@@ -214,7 +213,7 @@
                 </div>
             </div>
 
-            <div class=" col-lg-6 col-chart-buttonHome">
+            <div class=" col-lg-6 col-chart-buttonHome chartExp">
                 <h3 class="titleChart">Expenses amounts</h3> 
                 <canvas id="MyChartBar"></canvas>
                 {{-- Chart circle --}}
@@ -251,7 +250,7 @@
                 </script> 
             </div>
     
-            <div class="ChartExpense col-lg-5 ChartCategories">
+            <div class="ChartExpense col-lg-5 ChartCategories chartExp">
                 <h3 class="titleChart">distribution categories</h3>
                 <canvas id='MyChartCategories'></canvas>
 

@@ -37,7 +37,7 @@
     <section class="sectionCard sectionCardsection_money" >
 
       <div class="amount_money_container">
-        <h5>You have:</h5>
+        <h5>...</h5>
       
         <h4>Your money is</h4>
         <h1 class="amount_money">$<span id='balanceTotal' class='numscroller' data-min='1' data-max='' data-delay='5' data-increment='20'></span> </h1>
@@ -74,7 +74,7 @@
           <div class="input col-lg-4">
             <label for="expense_amount">Amount</label>
             <br>
-            <input type="type" name="expense_amount" autocomplete="off" placeholder="$" min="0" required>
+            <input type="type" name="expense_amount" autocomplete="off" placeholder="$4000" min="0" required>
           </div>
           
           <div class="selectCategoryContainer">
@@ -119,7 +119,7 @@
           <div class="input col-lg-6">
             <label for="income_amount">Amount</label>
             <br>
-            <input type="type" name="income_amount" autocomplete="off" placeholder="$" min="0" required>
+            <input type="type" name="income_amount" autocomplete="off" placeholder="$4000" min="0" required>
           </div>
 
           <br>
@@ -133,7 +133,7 @@
     </section>
 
     <section class="sectionCard section_money_info">
-      <div class="row">
+      <div class="row width50">
 
             
         <div class="col-money-info col-lg-6">
@@ -158,7 +158,7 @@
           <a href="/incomesReport/show"><button class="btn-lightgreen btn-manage-stocks btnAdStock">Administrar gastos</button></a>
         </div>
 
-        <div class="col-money-info col-lg-6">
+        <div class="col-money-info col-lg-6 paddleft">
           <h3>Your expenses:</h3>
           <ol class="forex">
             <table class="table-expenses">
@@ -200,13 +200,13 @@
 
 </div>
 
-  <div class="divFix optionsActions">
+  <div class="divFix optionsActions containerOptions">
     <div class="center">
-      <h4>Add...</h4>
+      <h4>Add</h4>
     </div>
-    <span class="optionAction incomeAction">$ Income</span>
+    <span class="optionAction incomeAction">$Income</span>
     <hr>
-    <span class="optionAction expenseAction">$ Expense</span> <br>
+    <span class="optionAction expenseAction">$Expense</span> <br>
   </div>
 
   <div class="divFix">

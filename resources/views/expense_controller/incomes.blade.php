@@ -61,7 +61,7 @@
                     <h3 class="titleChart">Your distribution</h3>
                     <canvas id='MyChart'></canvas>
                     <canvas id="MyChartBar"></canvas>
-                    <button class="btn_deepblue btnChangeFormat">Change format</button>
+                    <button class="btn_deepblue btnChangeFormat deepblueTwo">Change format</button>
     
                     {{-- Script chart --}}
                     <div class="">
@@ -141,7 +141,7 @@
         </section>
         
         <section class="section_btn_return">
-            <a href="/"><button class="btn_deepblue btnReturn">Dashboard</button></a>
+            <a href="/"><button class="btn_deepblue  btnReturn">Dashboard</button></a>
         </section>
 
         <script>

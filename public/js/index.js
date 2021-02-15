@@ -30,11 +30,13 @@ $('.incomeAction').on('click', function(){
     {
         $('#section_add_incomes').hide();
         stateAddIncome++;
+         $('.containerOptions').hide();
     }
     else
     {
         $('#section_add_incomes').show();
         stateAddIncome++;
+         $('.containerOptions').hide();
     }
 });
 
@@ -44,11 +46,13 @@ $('.expenseAction').on('click', function(){
     {
         $('#section_add_reports').hide();
         stateAddExpense++;
+         $('.containerOptions').hide();
     }
     else
     {
         $('#section_add_reports').show();
         stateAddExpense++;
+         $('.containerOptions').hide();
     }
 });
 

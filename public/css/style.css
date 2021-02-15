@@ -14,6 +14,16 @@
     padding: 0.5vw 1vw;
     transition: all 0.3s;
 }
+.deepblueTwo {
+    background-color: #332a79;
+    border: 2px solid #332a79;
+}
+.btn_deepblue:hover {
+    background-color: #332a79;
+    border: 2px solid #332a79;
+    transform: scale(1.05);
+}
+
 .btn_deepblue:hover {
     background-color: #443a8f;
     border: 2px solid #443a8f;
